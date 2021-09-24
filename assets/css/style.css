@@ -355,7 +355,7 @@ h1, h2, h3, h4, h5, h6 {
 
 #hero h1 {
   margin-top: 40px;
-  margin-left: 40px;
+  margin-left: 15px;
   font-size: 72px;
   font-weight: 700;
   line-height: 70px;
@@ -366,7 +366,7 @@ h1, h2, h3, h4, h5, h6 {
 
 #hero h2 {
   color: #1A1F15;
-  margin: 10px 0 0 40px;
+  margin: 10px 0 0 15px;
   font-size: 18px;
   line-height: 28px;
   font-weight: normal;
@@ -405,7 +405,7 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 30px;
   transition: 0.5s;
   margin-top: 25px;
-  margin-left: 40px;
+  margin-left: 15px;
   color: #fff;
   background: #1A1F15;
   /* text-transform: uppercase;*/
