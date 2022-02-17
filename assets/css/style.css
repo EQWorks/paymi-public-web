@@ -863,7 +863,11 @@ color: #1A1F15;
 
 .clients p {
   margin-top: 0px;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.clients .text {
   text-align: center;
 }
 
@@ -884,6 +888,20 @@ color: #1A1F15;
 .cell {
   padding-right: 30px;
   padding-bottom: 30px;
+}
+
+.clients form {
+  margin-top: 30px;
+}
+
+.clients label {
+  margin-right: 20px;
+}
+
+.clients input[type=checkbox], input[type=radio] {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 10px;
 }
 
 /*
