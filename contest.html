@@ -148,11 +148,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <form name="contest" method="POST" data-netlify="true">
     <p>
-      <label>Name: <input type="text" name="name" size="30" /></label> <label>Email: <input type="email" name="email" size="30" /></label>  
+      <label>Name: <input type="text" name="name" size="30" /></label>
+    </p> 
+    <p>
+    <label>Email: <input type="email" name="email" size="30" /></label>
+    </p>
+    <p>  
       <label>Address: <input type="address" name="address" size="30"/></label>
     </p>
     <p>
-        <label>City: <input type="city" name="city" /></label> 
+        <label>City: <input type="city" name="city" size="30"/></label> 
+    </p>
+    <p>
         <label>Province: <select name="province[]" unique>
             <option value="AB">Alberta</option>
             <option value="BC">British Columbia</option>
@@ -167,8 +174,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <option value="NU">Nunavut</option>
             <option value="YT">Yukon</option>
         </select></label>
+    </p>
+    <p>
         <label>Postal Code: <input type="postal" name="postal" /></label> 
-      </p>
+    </p>
       <p><input type="checkbox" type="legal" name="legal">I have read and agree to the terms and conditions of the contest.</p>
     <p>
       <button class="section-button" type="submit">Submit Entry!</button>
