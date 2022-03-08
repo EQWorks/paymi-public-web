@@ -153,20 +153,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <label>First Name <input type="text" name="firstname" required minlength="2" maxlength="8" size="20"/></label>
     </p>
     <p>
-        <label>Last Name <input type="text" name="lastname" /></label>
+        <label>Last Name <input type="text" name="lastname" required minlength="2" maxlength="8" size="20"/></label>
       </p>   
     <p>
-    <label>Email <input type="email" name="email" /></label>
+    <label>Email <input type="email" name="email" pattern=".+@globex\.com" size="30" required/></label>
     </p>
        
     <p>  
-      <label>Address <input type="text" name="address" /></label>
+      <label>Address <input type="text" name="address" required minlength="8" maxlength="40" size="40"/></label>
     </p>
     <p>
-        <label>City <input type="text" name="city" /></label> 
+        <label>City <input type="text" name="city"  required minlength="2" maxlength="20" size="20"/></label> 
     </p>
     <p>
-        <label>Province <select name="province[]" unique>
+        <label>Province <select name="province[]" unique required>
             <option value="AB">Alberta</option>
             <option value="BC">British Columbia</option>
             <option value="MB">Manitoba</option>
@@ -182,16 +182,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </select></label>
     </p>
     <p>
-        <label>Postal Code <input type="text" name="postal" /></label> 
+        <label>Postal Code (e.g. M1M 1M1) <input type="text" name="postal" pattern="[A-Za-z][0-9][A-Za-z] [0-9][A-Za-z][0-9]" required minlength="7" maxlength="7" size="7"/></label> 
     </p>
     <p>
-        <label>Daytime Phone Number<input type="text" name="phone" /></label>
+        <label>Daytime Phone Number<input type="text" name="phone" required minlength="10" maxlength="13" size="15"/></label>
         </p> 
-    <p><input type="checkbox" type="legal" name="aom">I am over the age of majority in my province of residence.</p>
+    <p><input type="checkbox" type="legal" name="aom" required>I am over the age of majority in my province of residence.</p>
   <p>
 
     </p>
-      <p><input type="checkbox" type="legal" name="legal">I have read and agree to the contest rules and regulations listed below this entry form</a>.</p>
+      <p><input type="checkbox" type="legal" name="legal" required>I have read and agree to the contest rules and regulations listed below this entry form</a>.</p>
     <p>
         <p><input type="checkbox" type="legal" name="mb_email_optin">Sign up to be on Mary Brown’s email list, and you will be the first to hear about exciting promotions, offers, deals, coupons, and cool contests like this one. All your contact information is safe with them. They never share your info with any other companies, etc.
         </p>
