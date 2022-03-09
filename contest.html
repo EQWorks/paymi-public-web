@@ -17,9 +17,84 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-TT6F7V7');</script>
+    })(window,document,'script','dataLayer','GTM-TT6F7V7');
+</script>
 <!-- End Google Tag Manager -->
+<script>
+	
+	var COMMON_FUNC = {};
+$("#save").on("click", function() {
+  var frmObject = $(this).closest("form"),
+    frmDisabledFlds = frmObject.find(":input:disabled").prop("disabled", false),
+    frmData = frmObject.serialize();
+  frmDisabledFlds.prop("disabled", true);
 
+  if (COMMON_FUNC.verifyFields("new-record")) {
+    console.log('Send Form Data!');
+  }
+});
+
+COMMON_FUNC.verifyFields = function(containerID, includeInvisible) {
+  includeInvisible = includeInvisible || false;
+  let isValid = true;
+  const hdlMap = {
+    'valueMissing': "This field is required",
+    'patternMismatch': "This field is invalid",
+    'tooLong': "This field is too long",
+    'rangeOverflow': "This field is greater than allowed maximum",
+    'rangeUnderflow': "This field is less than allowed minimum",
+    'typeMismatch': "This field is mistyped"
+  };
+
+  const arrV = Object.keys(hdlMap);
+
+  // Create an array for the invalid fields.
+  const invalidInputs = [];
+
+  $("#" + containerID).find("input,textarea,select").each(function() {
+    var curItem$ = $(this);
+    var errMsg = [];
+    var dispfld = curItem$.data("dispfld");
+
+    if (includeInvisible || curItem$.is(":visible")) {
+      if (curItem$[0].validity.valid) {
+        curItem$.removeClass("is-invalid");
+        return;
+      }
+
+      arrV.forEach(function(prop) {
+        if (curItem$[0].validity[prop]) {
+          if (prop === "patternMismatch" && dispfld) {
+            errMsg.push(dispfld);
+          } else {
+            errMsg.push(hdlMap[prop]);
+          }
+        }
+      });
+
+      if (errMsg.length) {
+        if (!curItem$.next().is(".invalid-feedback")) {
+          curItem$.after('<div class="invalid-feedback"></div>');
+        }
+        curItem$.addClass("is-invalid").next().text(errMsg.join(' and '));
+        isValid = false;
+        
+        //Push the invalid inputs onto the invalidInputs array.
+        invalidInputs.push(curItem$);
+      } else {
+        curItem$.removeClass("is-invalid");
+      }
+    }
+  });
+ 
+  // Focus on the first element that is invalid.
+  invalidInputs[0].focus();
+
+  return isValid;
+};
+	</script>
+	
+	
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
